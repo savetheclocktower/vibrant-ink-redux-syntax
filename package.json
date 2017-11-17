@@ -1,0 +1,15 @@
+{
+  "name": "vibrant-ink-redux-syntax",
+  "theme": "syntax",
+  "version": "0.0.0",
+  "description": "An Atom theme based on Justin Palmer's original",
+  "keywords": [
+    "syntax",
+    "theme"
+  ],
+  "repository": "https://github.com/savetheclocktower/vibrant-ink-redux-syntax",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}

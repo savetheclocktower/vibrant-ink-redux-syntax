@@ -1,0 +1,9 @@
+
+// Make targeting scopes less tedious.
+.s(@scope, @ruleset) {
+  @selector: ~`@{scope}.split(/,\s*/).map(  (s) => s.split(/\./).map((p) => ".syntax--" + p).join('')  ).join(', ').slice(1)`;
+
+  .@{selector} {
+    @ruleset();
+  }
+}

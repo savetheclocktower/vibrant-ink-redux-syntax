@@ -1,0 +1,271 @@
+@import 'syntax-variables';
+@import 'utilities';
+
+// Make bookmarks stand out more.
+atom-text-editor .gutter .line-number.bookmarked .icon-right:before {
+  color: @very-light-gray;
+}
+
+// Mini editor
+atom-text-editor[mini] .scroll-view {
+  padding-left: 1px;
+}
+
+atom-text-editor {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+    color: @syntax-gutter-text-color;
+
+    .line-number {
+      &.cursor-line {
+        background-color: @syntax-gutter-background-color-selected;
+        color: @syntax-gutter-text-color-selected;
+      }
+
+      &.cursor-line-no-selection {
+        color: @syntax-gutter-text-color-selected;
+      }
+    }
+  }
+
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: @light-gray;
+  }
+
+  .invisible {
+    color: @syntax-text-color;
+  }
+
+  .cursor {
+    color: @syntax-cursor-color;
+  }
+
+  .selection .region {
+    background-color: @syntax-selection-color;
+  }
+}
+
+.s('keyword', { color: @red; });
+
+.s('keyword.control', { color: @red; });
+.s('keyword.operator', { color: @red; });
+
+.s('keyword.other.special-method, keyword.other.unit', { color: @yellow; });
+
+.s('storage', {
+  color: @white;
+  font-style: italic;
+});
+
+.s('comment', { color: @light-gray; });
+
+.s('constant', { color: @aqua; });
+.s('constant.numeric', { color: @slate; });
+
+.s('constant.character.escape', {
+  color: darken(@aqua, 20%);
+});
+
+.s('variable', {
+  color: @cyan;
+  .s('interpolation', { color: darken(@red, 10%); });
+});
+
+.s('variable.parameter', { font-style: italic; });
+
+.s('invalid.illegal', {
+  background-color: @red;
+  color: @syntax-background-color;
+});
+
+.s('string', {
+  color: @green;
+});
+
+.s('string.regexp', {
+    color: @aqua;
+
+    .s('source.ruby.embedded') {
+      color: @orange;
+    }
+});
+
+.s('string.regexp.group', {
+  background-color: fade(@aqua, 8%);
+});
+
+.s('string.other.link', {
+  color: @cyan;
+});
+
+.s('punctuation.definition.comment', {
+  color: @light-gray;
+});
+
+.s('punctuation.definition.parameters, punctuation.definition.array', {
+  color: @syntax-text-color;
+});
+
+.s('punctuation.definition.heading, punctuation.definition.identity', {
+  color: @blue;
+});
+
+.s('punctuation.defintion.bold', {
+  color: @syntax-text-color;
+  font-weight: bold;
+});
+
+.s('punctuation.definition.italic', {
+  color: @syntax-text-color;
+  font-style: italic;
+});
+
+.s('punctuation.section.embedded', {
+  color: desaturate( lighten(@green, 40%), 30% );
+});
+
+.s('support', { color: @bluish-white; });
+.s('support.type.property-name', { color: @brown; });
+.s('support.class', { color: @bluish-white; });
+
+
+.s('entity', { color: @orange; });
+.s('entity.name.type', { color: @syntax-text-color; });
+.s('entity.other.inherited-class', { color: @green; });
+.s('entity.name.section', { color: @blue; });
+.s('entity.name.tag', {
+  color: @red;
+  text-decoration: underline;
+  text-decoration-color: fade(@red, 20%);
+});
+.s('punctuation.definition.tag.html, punctuation.definition.tag.xml', {
+  color: @red;
+});
+
+.s('entity.other.attribute-name', { color: @orange; });
+.s('entity.other.id', { color: @blue; });
+
+.syntax--meta.syntax-class:not(.syntax--body) {
+  color: @bluish-white;
+}
+
+.s('meta.link', { color: @orange; });
+.s('meta.require', { color: @blue; });
+.s('meta.selector', { color: @red; });
+.s('meta.separator', {
+  background-color: @gray;
+  color: @syntax-text-color;
+});
+
+.s('none', { color: @syntax-text-color; });
+
+.s('markup.bold' {
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.1);
+});
+
+.s('markup.italic', {
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.1);
+});
+
+.s('markup.changed', {
+  background-color: fade(@purple, 15%);
+});
+
+.s('markup.deleted', {
+  background-color: fade(@red, 15%);
+});
+
+.s('markup.heading', {
+  .s('punctuation.definition.heading', { color: @orange; });
+});
+
+.s('markup.inserted', {
+  background-color: fade(@green, 15%);
+});
+
+.s('markup.list', {
+  color: @red;
+});
+
+.s('markup.quote', {
+  color: @orange;
+});
+
+.s('markup.raw.inline', {
+  color: @green;
+});
+
+.s('meta.embedded', {
+  background-color: rgba(255, 255, 255, 0.1);
+});
+
+
+
+// GFM OVERRIDES
+.s('source.gfm', {
+  .s('markup', {
+    -webkit-font-smoothing: auto;
+  });
+  .s('markup.heading', {
+    color: @orange;
+  });
+});
+
+
+// JAVASCRIPT (BABEL) OVERRIDES
+.s('source.js.jsx', {
+
+  .s('meta.tag', {
+    color: @red;
+    .s('support', {
+      color: 'red';
+    });
+  });
+
+  .s('constant.other.object.key', {
+    color: @orange;
+
+    .s('string.unquoted', { color: @orange; });
+  });
+
+  .s('entity.name.function', { color: @orange; });
+
+  // Function _calls_ should not be colored orange.
+  .s('meta.method-call', {
+    .s('string.quoted', {
+      .s('entity.name.function', {
+        color: @green;
+      });
+    });
+
+    .s('entity.name.function', {
+        color: @syntax-text-color;
+    });
+  });
+
+  .s('variable.other.property', {
+    color: @syntax-text-color;
+  });
+
+});
+
+@import 'languages/ruby';
