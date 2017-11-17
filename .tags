@@ -4,14 +4,12 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-alternation	tmp.rb	/^def alternation(*s)$/;"	f
 atom	package.json	/^    "atom": ">=1.0.0 <2.0.0"$/;"	f
-description	package.json	/^  "description": "A short description of your syntax theme",$/;"	f
+description	package.json	/^  "description": "An Atom theme based on Justin Palmer's original",$/;"	f
 engines	package.json	/^  "engines": {$/;"	f
 keywords	package.json	/^  "keywords": [$/;"	f
 license	package.json	/^  "license": "MIT",$/;"	f
 name	package.json	/^  "name": "vibrant-ink-redux-syntax",$/;"	f
-out	tmp.rb	/^def out(*args)$/;"	f
 repository	package.json	/^  "repository": "https:\/\/github.com\/savetheclocktower\/vibrant-ink-redux-syntax",$/;"	f
 theme	package.json	/^  "theme": "syntax",$/;"	f
-version	package.json	/^  "version": "0.0.0",$/;"	f
+version	package.json	/^  "version": "0.3.2",$/;"	f

@@ -100,7 +100,7 @@ atom-text-editor {
 });
 
 .s('string.regexp', {
-    color: @aqua;
+    color: lighten(@aqua, 15%);
 
     .s('source.ruby.embedded') {
       color: @orange;
@@ -137,8 +137,12 @@ atom-text-editor {
   font-style: italic;
 });
 
+.s('punctuation.definition.tag', {
+  color: @red;
+});
+
 .s('punctuation.section.embedded', {
-  color: desaturate( lighten(@green, 40%), 30% );
+  color: fade(@green, 15%);
 });
 
 .s('support', { color: @bluish-white; });
@@ -184,6 +188,10 @@ atom-text-editor {
 .s('markup.italic', {
   font-style: italic;
   background-color: rgba(255, 255, 255, 0.1);
+});
+
+.s('markup.underline', {
+  text-decoration: underline;
 });
 
 .s('markup.changed', {
@@ -234,10 +242,20 @@ atom-text-editor {
 // JAVASCRIPT (BABEL) OVERRIDES
 .s('source.js.jsx', {
 
+  .s('meta.function.method', {
+    .s('entity.name.function', {
+      color: @orange;
+    });
+  });
+
+  .s('punctuation.section.embedded', {
+    color: @syntax-text-color;
+  });
+
   .s('meta.tag', {
-    color: @red;
+    // color: @red;
     .s('support', {
-      color: 'red';
+      color: @red;
     });
   });
 
@@ -269,3 +287,4 @@ atom-text-editor {
 });
 
 @import 'languages/ruby';
+@import 'languages/html';
