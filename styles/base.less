@@ -222,8 +222,9 @@ atom-text-editor {
   color: @green;
 });
 
-.s('meta.embedded', {
+.s('meta.embedded, variable.interpolation', {
   background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 2px
 });
 
 
@@ -239,52 +240,6 @@ atom-text-editor {
 });
 
 
-// JAVASCRIPT (BABEL) OVERRIDES
-.s('source.js.jsx', {
-
-  .s('meta.function.method', {
-    .s('entity.name.function', {
-      color: @orange;
-    });
-  });
-
-  .s('punctuation.section.embedded', {
-    color: @syntax-text-color;
-  });
-
-  .s('meta.tag', {
-    // color: @red;
-    .s('support', {
-      color: @red;
-    });
-  });
-
-  .s('constant.other.object.key', {
-    color: @orange;
-
-    .s('string.unquoted', { color: @orange; });
-  });
-
-  .s('entity.name.function', { color: @orange; });
-
-  // Function _calls_ should not be colored orange.
-  .s('meta.method-call', {
-    .s('string.quoted', {
-      .s('entity.name.function', {
-        color: @green;
-      });
-    });
-
-    .s('entity.name.function', {
-        color: @syntax-text-color;
-    });
-  });
-
-  .s('variable.other.property', {
-    color: @syntax-text-color;
-  });
-
-});
-
 @import 'languages/ruby';
 @import 'languages/html';
+@import 'languages/babel';
