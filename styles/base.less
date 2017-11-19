@@ -74,6 +74,10 @@ atom-text-editor {
   font-style: italic;
 });
 
+.s('storage.type.function', {
+  color: @orange;
+});
+
 .s('comment', { color: @light-gray; });
 
 .s('constant', { color: @aqua; });
@@ -100,14 +104,18 @@ atom-text-editor {
 });
 
 .s('string.regexp', {
-    color: lighten(@aqua, 15%);
+    color: #29A994;
+
+    .s('punctuation.string', {
+      color: inherit;
+    });
 
     .s('source.ruby.embedded') {
       color: @orange;
     }
 });
 
-.s('string.regexp.group', {
+.s('string.regexp.group, meta.group.regexp', {
   background-color: fade(@aqua, 8%);
 });
 
@@ -141,9 +149,9 @@ atom-text-editor {
   color: @red;
 });
 
-.s('punctuation.section.embedded', {
-  color: fade(@green, 15%);
-});
+// .s('punctuation.section.embedded', {
+//   background-color: fade(@green, 15%);
+// });
 
 .s('support', { color: @bluish-white; });
 .s('support.type.property-name', { color: @brown; });
@@ -161,6 +169,12 @@ atom-text-editor {
 });
 .s('punctuation.definition.tag.html, punctuation.definition.tag.xml', {
   color: @red;
+});
+
+.s('meta.function-call', {
+  .s('entity.name.function', {
+    color: inherit;
+  });
 });
 
 .s('entity.other.attribute-name', { color: @orange; });
@@ -223,11 +237,8 @@ atom-text-editor {
 });
 
 .s('meta.embedded, variable.interpolation', {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 2px
+  .mixin-embedded();
 });
-
-
 
 // GFM OVERRIDES
 .s('source.gfm', {
@@ -243,3 +254,4 @@ atom-text-editor {
 @import 'languages/ruby';
 @import 'languages/html';
 @import 'languages/babel';
+@import 'languages/php';

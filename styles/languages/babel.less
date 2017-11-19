@@ -1,6 +1,14 @@
 // JAVASCRIPT (BABEL) OVERRIDES
 .s('source.js.jsx', {
 
+  .s('entity.quasi.element', {
+    .mixin-embedded();
+
+    .s('punctuation.quasi.element', {
+      color: @green;
+    });
+  });
+
   .s('storage.type.function.arrow', {
     color: @syntax-text-color;
   });
@@ -49,7 +57,7 @@
     });
 
     .s('entity.name.function', {
-        color: @syntax-text-color !important;
+        color: inherit !important;
     });
   });
 
