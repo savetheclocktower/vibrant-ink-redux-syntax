@@ -76,12 +76,19 @@ atom-text-editor {
 
 .s('comment', { color: @light-gray; });
 
-.s('constant', { color: @aqua; });
+.s('comment.documentation', {
+  color: @purple;
+  .s('punctuation.definition.comment', {
+    color: inherit;
+  });
+});
+
+.s('constant', { color: @foam-green; });
 .s('constant.numeric', { color: @slate; });
 
-.s('constant.character.escape', {
-  color: darken(@aqua, 20%);
-});
+// .s('constant.character.escape', {
+//   color: @aqua, 20%);
+// });
 
 .s('variable', {
   color: @cyan;
@@ -100,7 +107,10 @@ atom-text-editor {
 });
 
 .s('string.regexp', {
-    color: lighten(@aqua, 15%);
+    color: @aqua;
+    .s('punctuation.definition.string', {
+      color: inherit;
+    });
 
     .s('source.ruby.embedded') {
       color: @orange;
