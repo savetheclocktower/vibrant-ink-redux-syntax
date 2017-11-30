@@ -1,0 +1,68 @@
+// JAVASCRIPT (BABEL) OVERRIDES
+.s('source.js.jsx', {
+
+  .s('entity.quasi.element', {
+    .mixin-embedded();
+
+    .s('punctuation.quasi.element', {
+      color: @green;
+    });
+  });
+
+  .s('storage.type.function.arrow', {
+    color: @syntax-text-color;
+  });
+
+  .s('storage.type.function', {
+    color: @orange;
+  });
+
+  .s('meta.function.method', {
+    .s('entity.name.function', {
+      color: @orange;
+    });
+  });
+
+  .s('punctuation.section.embedded', {
+    color: @syntax-text-color;
+  });
+
+  .s('meta.tag', {
+    // color: @red;
+    .s('support', {
+      color: @red;
+    });
+  });
+
+  .s('constant.other.object.key', {
+    color: @orange;
+
+    .s('string.unquoted', { color: @orange; });
+  });
+
+  .s('entity.name.function', { color: @orange; });
+
+  // Function _calls_ should not be colored orange.
+  .s('meta.method-call', {
+    .s('string.quoted', {
+      .s('entity.name.function', {
+        color: @green;
+      });
+    });
+
+    .s('meta.function.arrow', {
+      .s('entity.name.function', {
+          color: @orange;
+      });
+    });
+
+    .s('entity.name.function', {
+        color: inherit !important;
+    });
+  });
+
+  .s('variable.other.property', {
+    color: @syntax-text-color;
+  });
+
+});

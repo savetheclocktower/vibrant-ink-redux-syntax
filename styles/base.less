@@ -74,6 +74,10 @@ atom-text-editor {
   font-style: italic;
 });
 
+.s('storage.type.function', {
+  color: @orange;
+});
+
 .s('comment', { color: @light-gray; });
 
 .s('comment.documentation', {
@@ -117,7 +121,7 @@ atom-text-editor {
     }
 });
 
-.s('string.regexp.group', {
+.s('string.regexp.group, meta.group.regexp', {
   background-color: fade(@aqua, 8%);
 });
 
@@ -151,9 +155,9 @@ atom-text-editor {
   color: @red;
 });
 
-.s('punctuation.section.embedded', {
-  color: fade(@green, 15%);
-});
+// .s('punctuation.section.embedded', {
+//   background-color: fade(@green, 15%);
+// });
 
 .s('support', { color: @bluish-white; });
 .s('support.type.property-name', { color: @brown; });
@@ -171,6 +175,12 @@ atom-text-editor {
 });
 .s('punctuation.definition.tag.html, punctuation.definition.tag.xml', {
   color: @red;
+});
+
+.s('meta.function-call', {
+  .s('entity.name.function', {
+    color: inherit;
+  });
 });
 
 .s('entity.other.attribute-name', { color: @orange; });
@@ -232,11 +242,9 @@ atom-text-editor {
   color: @green;
 });
 
-.s('meta.embedded', {
-  background-color: rgba(255, 255, 255, 0.1);
+.s('meta.embedded, variable.interpolation', {
+  .mixin-embedded();
 });
-
-
 
 // GFM OVERRIDES
 .s('source.gfm', {
@@ -249,52 +257,7 @@ atom-text-editor {
 });
 
 
-// JAVASCRIPT (BABEL) OVERRIDES
-.s('source.js.jsx', {
-
-  .s('meta.function.method', {
-    .s('entity.name.function', {
-      color: @orange;
-    });
-  });
-
-  .s('punctuation.section.embedded', {
-    color: @syntax-text-color;
-  });
-
-  .s('meta.tag', {
-    // color: @red;
-    .s('support', {
-      color: @red;
-    });
-  });
-
-  .s('constant.other.object.key', {
-    color: @orange;
-
-    .s('string.unquoted', { color: @orange; });
-  });
-
-  .s('entity.name.function', { color: @orange; });
-
-  // Function _calls_ should not be colored orange.
-  .s('meta.method-call', {
-    .s('string.quoted', {
-      .s('entity.name.function', {
-        color: @green;
-      });
-    });
-
-    .s('entity.name.function', {
-        color: @syntax-text-color;
-    });
-  });
-
-  .s('variable.other.property', {
-    color: @syntax-text-color;
-  });
-
-});
-
 @import 'languages/ruby';
 @import 'languages/html';
+@import 'languages/babel';
+@import 'languages/php';
