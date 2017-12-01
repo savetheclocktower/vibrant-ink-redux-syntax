@@ -92,8 +92,8 @@ atom-text-editor {
 .s('constant', { color: @foam-green; });
 .s('constant.numeric', { color: @slate; });
 
-.s('constant.character.escape', {
-  color: darken( desaturate(@aqua, 15%), 10%);
+.s('constant.character.escape.backslash', {
+  color: darken( desaturate(@foam-green, 10%), 30%);
 });
 
 .s('variable', {
@@ -158,10 +158,6 @@ atom-text-editor {
 .s('punctuation.definition.tag', {
   color: @red;
 });
-
-// .s('punctuation.section.embedded', {
-//   background-color: fade(@green, 15%);
-// });
 
 .s('support', { color: @bluish-white; });
 .s('support.type.property-name', { color: @brown; });
