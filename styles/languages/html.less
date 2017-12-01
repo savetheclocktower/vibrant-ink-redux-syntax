@@ -3,10 +3,22 @@
 
 .s('text.html', {
 
+  .s('constant.character.entity.html', {
+    color: @aqua !important;
+    .s('entity.name.entity', {
+      color: inherit;
+    });
+    .s('punctuation.entity', {
+      color: inherit;
+    });
+  });
+
   .s('punctuation.separator.key-value.html', {
     color: @red;
   });
 
-  .s('entity.other.attribute-name.id', { color: @orange; });
+  .s('entity.other.attribute-name.id', {
+    color: @orange;
+  });
 
 });

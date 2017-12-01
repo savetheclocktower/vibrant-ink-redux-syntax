@@ -12,4 +12,4 @@ license	package.json	/^  "license": "MIT",$/;"	f
 name	package.json	/^  "name": "vibrant-ink-redux-syntax",$/;"	f
 repository	package.json	/^  "repository": "https:\/\/github.com\/savetheclocktower\/vibrant-ink-redux-syntax",$/;"	f
 theme	package.json	/^  "theme": "syntax",$/;"	f
-version	package.json	/^  "version": "0.3.5",$/;"	f
+version	package.json	/^  "version": "0.3.6",$/;"	f

@@ -12,6 +12,8 @@ atom-text-editor[mini] .scroll-view {
 }
 
 atom-text-editor {
+  // TODO: Decide which text-smoothing approach I like better.
+  // -webkit-font-smoothing: antialiased;
   background-color: @syntax-background-color;
   color: @syntax-text-color;
 
@@ -90,16 +92,18 @@ atom-text-editor {
 .s('constant', { color: @foam-green; });
 .s('constant.numeric', { color: @slate; });
 
-// .s('constant.character.escape', {
-//   color: @aqua, 20%);
-// });
+.s('constant.character.escape', {
+  color: darken( desaturate(@aqua, 15%), 10%);
+});
 
 .s('variable', {
   color: @cyan;
   .s('interpolation', { color: darken(@red, 10%); });
 });
 
-.s('variable.parameter', { font-style: italic; });
+.s('variable.parameter', {
+  .mixin-parameter();
+});
 
 .s('invalid.illegal', {
   background-color: @red;
@@ -261,3 +265,4 @@ atom-text-editor {
 @import 'languages/html';
 @import 'languages/babel';
 @import 'languages/php';
+@import 'languages/python';
