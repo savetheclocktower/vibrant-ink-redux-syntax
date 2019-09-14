@@ -166,6 +166,7 @@ atom-text-editor {
 
 .s('entity', { color: @orange; });
 .s('entity.name.type', { color: @syntax-text-color; });
+.s('entity.name.type.class', { color: @orange });
 .s('entity.other.inherited-class', { color: @green; });
 .s('entity.name.section', { color: @blue; });
 .s('entity.name.tag', {
@@ -184,7 +185,7 @@ atom-text-editor {
 });
 
 .s('entity.other.attribute-name', { color: @orange; });
-.s('entity.other.id', { color: @blue; });
+// .s('entity.other.id', { color: @blue; });
 
 .syntax--meta.syntax-class:not(.syntax--body) {
   color: @bluish-white;
@@ -262,3 +263,4 @@ atom-text-editor {
 @import 'languages/babel';
 @import 'languages/php';
 @import 'languages/python';
+@import 'languages/cpp';

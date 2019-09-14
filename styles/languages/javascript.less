@@ -1,0 +1,81 @@
+@import 'utilities';
+@import 'colors';
+
+// JAVASCRIPT (TREE-SITTER) OVERRIDES
+.s('source.js', {
+
+  .s('entity.quasi.element', {
+    .mixin-embedded();
+
+    .s('punctuation.quasi.element', {
+      color: @red;
+    });
+  });
+
+  .s('storage.type.function.arrow', {
+    color: @syntax-text-color;
+  });
+
+  .s('meta.function.parameters', {
+    .s('variable.other.readwrite', {
+      .mixin-parameter();
+    });
+  });
+
+  .s('storage.type.function', {
+    color: @orange;
+  });
+
+  .s('meta.function.method', {
+    .s('entity.name.function', {
+      color: @orange;
+    });
+  });
+
+  .s('punctuation.section.embedded', {
+    color: @syntax-text-color;
+  });
+
+  .s('meta.tag', {
+    // color: @red;
+    .s('support', {
+      color: @red;
+    });
+  });
+
+  .s('constant.other.object.key', {
+    color: @orange;
+
+    .s('string.unquoted', { color: @orange; });
+  });
+
+  .s('entity.name.function', { color: @orange; });
+
+  .s('string.quoted.template', {
+    background-color: lighten(@black, 10%);
+  });
+
+  // Function _calls_ should not be colored orange.
+  .s('meta.method-call', {
+    .s('string.quoted', {
+      .s('entity.name.function', {
+        color: @green;
+      });
+    });
+
+    .s('meta.function.arrow', {
+      .s('entity.name.function', {
+          color: @orange;
+      });
+    });
+
+    .s('entity.name.function', {
+        color: inherit !important;
+    });
+  });
+
+  .s('variable.other.property', {
+    color: @syntax-text-color;
+  });
+
+});

@@ -1,8 +1,7 @@
 @import 'utilities';
 @import 'colors';
 
-.s('text.html', {
-
+.html-styles {
   .s('constant.character.entity.html', {
     color: @aqua !important;
     .s('entity.name.entity', {
@@ -20,5 +19,12 @@
   .s('entity.other.attribute-name.id', {
     color: @orange;
   });
+}
 
+.s('source.html', {
+  .html-styles();
+});
+
+.s('text.html', {
+  .html-styles();
 });
