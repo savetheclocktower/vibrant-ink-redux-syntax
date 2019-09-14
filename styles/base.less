@@ -178,14 +178,11 @@ atom-text-editor {
   color: @red;
 });
 
-.s('meta.function-call', {
-  .s('entity.name.function', {
-    color: inherit;
-  });
+.s('entity.name.function', {
+  color: @orange;
 });
 
 .s('entity.other.attribute-name', { color: @orange; });
-// .s('entity.other.id', { color: @blue; });
 
 .syntax--meta.syntax-class:not(.syntax--body) {
   color: @bluish-white;

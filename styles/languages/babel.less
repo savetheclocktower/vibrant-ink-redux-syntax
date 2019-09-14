@@ -69,9 +69,12 @@
       });
     });
 
-    .s('entity.name.function', {
-        color: inherit !important;
-    });
+    // The Babel grammar applies `entity.name.function` to both function
+    // _definitions_ and function _calls_. Try to isolate the latter and
+    // exclude them from styling.
+    & > .syntax--entity.syntax--name.syntax--function {
+      color: inherit !important;
+    }
   });
 
   .s('variable.other.property', {
