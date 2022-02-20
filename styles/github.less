@@ -1,0 +1,29 @@
+
+@background-line-added: rgba(26, 255, 91, 0.38);
+@background-line-added-selected: rgba(26, 255, 91, 0.45);
+
+@background-line-deleted: rgba(255, 82, 102, 0.38);
+@background-line-deleted-selected: rgba(255, 82, 102, 0.45);
+
+.github-FilePatchView-container {
+
+  .github-HunkHeaderView-title {
+    color: rgba(117, 144, 163, 0.9);
+  }
+
+  .github-FilePatchView-line--added {
+    background-color: @background-line-added;
+  }
+
+  .github-FilePatchView-line--selected.github-FilePatchView-line--added {
+    background-color: @background-line-added-selected;
+  }
+
+  .github-FilePatchView-line--deleted {
+    background-color: @background-line-deleted;
+  }
+
+  .github-FilePatchView-line--selected.github-FilePatchView-line--deleted {
+    background-color: @background-line-deleted-selected;
+  }
+}
