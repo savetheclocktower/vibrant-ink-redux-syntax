@@ -4,6 +4,10 @@
 // JAVASCRIPT (TREE-SITTER) OVERRIDES
 .s('source.js', {
 
+  .s('punctuation.section.embedded', {
+    color: @red;
+  });
+
   .s('entity.quasi.element', {
     .mixin-embedded();
 
@@ -26,14 +30,12 @@
     color: @orange;
   });
 
-  .s('meta.function.method', {
-    .s('entity.name.function', {
-      color: @orange;
-    });
-  });
+  .s('storage.modifier', { color: @red; });
 
-  .s('punctuation.section.embedded', {
-    color: @syntax-text-color;
+  .s('string.quoted.template', {
+    .s('meta.embedded', {
+      color: @syntax-text-color;
+    });
   });
 
   .s('meta.tag', {
@@ -43,13 +45,18 @@
     });
   });
 
-  .s('constant.other.object.key', {
+  .s('constant.other.object.property', {
     color: @orange;
-
-    .s('string.unquoted', { color: @orange; });
   });
 
-  .s('entity.name.function', { color: @orange; });
+  .s('entity.name.function', {
+    color: inherit;
+  });
+  .s('entity.name.function.definition', { color: @orange; });
+  .s('entity.name.class.definition', {
+    color: @syntax-text-color;
+    text-decoration: underline;
+  });
 
   .s('string.quoted.template', {
     background-color: lighten(@black, 10%);
