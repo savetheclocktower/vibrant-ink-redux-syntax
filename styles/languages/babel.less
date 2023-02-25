@@ -4,12 +4,27 @@
 // JAVASCRIPT (BABEL) OVERRIDES
 .s('source.js.jsx', {
 
+  .s('meta.separator', {
+    background-color: inherit;
+    color: @syntax-text-color;
+  });
+
+  .s('punctuation.accessor', { color: @red; });
+
   .s('entity.quasi.element', {
     .mixin-embedded();
 
     .s('punctuation.quasi.element', {
       color: @red;
     });
+  });
+
+  .s('meta.template-expression', {
+    // .mixin-embedded();
+  });
+
+  .s('punctuation.definition.template-expression', {
+    color: @red;
   });
 
   .s('storage.type.function.arrow', {
@@ -40,6 +55,12 @@
     // color: @red;
     .s('support', {
       color: @red;
+    });
+  });
+
+  .s('meta.new.expr', {
+    .s('variable.other.readwrite', {
+      color: @bluish-white;
     });
   });
 
@@ -79,6 +100,16 @@
 
   .s('variable.other.property', {
     color: @syntax-text-color;
+  });
+
+  .s('variable.other.constant', {
+    color: @foam-green;
+  });
+
+  .s('meta.definition.variable', {
+    .s('variable.other.constant', {
+      color: @blue;
+    });
   });
 
 });

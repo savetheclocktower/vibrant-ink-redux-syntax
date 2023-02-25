@@ -62,6 +62,10 @@ atom-text-editor {
   .selection .region {
     background-color: @syntax-selection-color;
   }
+
+  .placeholder-text {
+    color: darken(@light-gray, 15%);
+  }
 }
 
 .s('keyword', { color: @red; });
@@ -96,8 +100,12 @@ atom-text-editor {
   color: darken( desaturate(@foam-green, 10%), 30%);
 });
 
-.s('variable', {
+// We want to match `.variable` but not (e.g.) `.meta.variable`.
+*[class^="syntax--variable"] {
   color: @cyan;
+}
+
+.s('variable', {
   .s('interpolation', { color: darken(@red, 10%); });
 });
 
@@ -166,8 +174,13 @@ atom-text-editor {
 
 .s('entity', { color: @orange; });
 .s('entity.name.type', { color: @syntax-text-color; });
-.s('entity.name.type.class', { color: @orange });
-.s('entity.other.inherited-class', { color: @green; });
+.s('entity.name.type.class', {
+  color: @orange;
+  text-decoration: underline;
+  text-decoration-color: fade(@orange, 40%);
+});
+
+.s('entity.other.inherited-class', { color: @orange; });
 .s('entity.name.section', { color: @blue; });
 .s('entity.name.tag', {
   color: @red;
@@ -182,9 +195,11 @@ atom-text-editor {
   color: @orange;
 });
 
+.s('meta.object-literal.key', { color: @orange; });
+
 .s('entity.other.attribute-name', { color: @orange; });
 
-.syntax--meta.syntax-class:not(.syntax--body) {
+.syntax--meta.syntax--class:not(.syntax--body) {
   color: @bluish-white;
 }
 

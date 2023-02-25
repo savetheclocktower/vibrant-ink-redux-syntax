@@ -26,6 +26,10 @@
     });
   });
 
+  .s('variable.other.object', {
+    color: inherit;
+  });
+
   .s('storage.type.function', {
     color: @orange;
   });
@@ -63,7 +67,7 @@
   });
 
   // Function _calls_ should not be colored orange.
-  .s('meta.method-call', {
+  .s('meta.method-call, meta.function-call', {
     .s('string.quoted', {
       .s('entity.name.function', {
         color: @green;
@@ -77,12 +81,14 @@
     });
 
     .s('entity.name.function', {
-        color: inherit !important;
+      // TODO: Going back and forth on whether functions should be orange or
+      // white.
+
+      color: inherit !important;
     });
   });
 
-  .s('variable.other.property', {
-    color: @syntax-text-color;
-  });
+  .s('variable.other.property', { color: @syntax-text-color; });
+  .s('variable.language.this', { color: @foam-green; });
 
 });
