@@ -1,15 +1,19 @@
 @import 'utilities';
 @import 'colors';
 
+.s('source.php', {
+  color: @syntax-text-color;
+});
+
 .s('text.html.php', {
 
-  .s('meta.embedded', {
-    background-color: inherit;
-    border-color: transparent;
-  });
+  // .s('meta.embedded', {
+  //   background-color: inherit;
+  //   border-color: transparent;
+  // });
 
   .s('punctuation.section.embedded', {
-    .mixin-embedded();
+    .mixin-embedded-line();
   });
 
 });

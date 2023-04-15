@@ -73,7 +73,9 @@ atom-text-editor {
 .s('keyword.control', { color: @red; });
 .s('keyword.operator', { color: @red; });
 
-.s('keyword.other.special-method, keyword.other.unit', { color: @yellow; });
+.s('keyword.other.special-method, keyword.other.unit', {
+  color: @yellow;
+});
 
 .s('storage', {
   color: @white;
@@ -84,28 +86,26 @@ atom-text-editor {
   color: @orange;
 });
 
-.s('comment', { color: @light-gray; });
+.sx('comment', { color: @light-gray });
 
-.s('comment.documentation', {
+.s('comment.block.documentation', {
   color: @purple;
   .s('punctuation.definition.comment', {
     color: inherit;
   });
 });
 
-.s('constant', { color: @foam-green; });
-.s('constant.numeric', { color: @slate; });
+.sx('constant', { color: @foam-green; });
+.sx('constant.numeric', { color: @slate; });
 
 .s('constant.character.escape.backslash', {
   color: darken( desaturate(@foam-green, 10%), 30%);
 });
 
 // We want to match `.variable` but not (e.g.) `.meta.variable`.
-*[class^="syntax--variable"] {
-  color: @cyan;
-}
+.sx('variable', { color: @cyan });
 
-.s('variable', {
+.sx('variable', {
   .s('interpolation', { color: darken(@red, 10%); });
 });
 
@@ -113,16 +113,21 @@ atom-text-editor {
   .mixin-parameter();
 });
 
-.s('invalid.illegal', {
+.sx('invalid.illegal', {
   background-color: @red;
   color: @syntax-background-color;
 });
 
-.s('string', {
+.sx('invalid.deprecated', {
+  color: lighten(#900, 60%);
+  font-style: italic;
+});
+
+.sx('string', {
   color: @green;
 });
 
-.s('string.regexp', {
+.sx('string.regexp', {
     color: @aqua;
     .s('punctuation.definition.string', {
       color: inherit;
@@ -167,13 +172,32 @@ atom-text-editor {
   color: @red;
 });
 
-.s('support', { color: @bluish-white; });
+.s('support', {
+  color: @bluish-white;
+});
+
+.sx('support.other', {
+  color: @syntax-text-color;
+});
+
+.sx('support.function', {
+  text-decoration: underline;
+  text-decoration-color: fade(@orange, 35%);
+});
+
+.sx('support.other.function', {
+  // color: @orange;
+  // color: lighten(fade(@orange, 95%), 35%);
+  // text-decoration: underline;
+  // text-decoration-color: fade(@orange, 35%);
+  // text-decoration-thickness: 2px;
+});
+
 .s('support.type.property-name', { color: @brown; });
-.s('support.class', { color: @bluish-white; });
+.s('support.class, support.type.class', { color: @bluish-white; });
 
 
 .s('entity', { color: @orange; });
-.s('entity.name.type', { color: @syntax-text-color; });
 .s('entity.name.type.class', {
   color: @orange;
   text-decoration: underline;
@@ -181,12 +205,13 @@ atom-text-editor {
 });
 
 .s('entity.other.inherited-class', { color: @orange; });
-.s('entity.name.section', { color: @blue; });
+// .s('entity.name.section', { color: @blue; });
 .s('entity.name.tag', {
   color: @red;
   text-decoration: underline;
   text-decoration-color: fade(@red, 20%);
 });
+
 .s('punctuation.definition.tag.html, punctuation.definition.tag.xml', {
   color: @red;
 });
@@ -199,9 +224,9 @@ atom-text-editor {
 
 .s('entity.other.attribute-name', { color: @orange; });
 
-.syntax--meta.syntax--class:not(.syntax--body) {
-  color: @bluish-white;
-}
+// .syntax--meta.syntax--class:not(.syntax--body) {
+//   color: @bluish-white;
+// }
 
 .s('meta.link', { color: @orange; });
 .s('meta.require', { color: @blue; });
@@ -211,7 +236,7 @@ atom-text-editor {
   color: @syntax-text-color;
 });
 
-.s('none', { color: @syntax-text-color; });
+// .s('none', { color: @syntax-text-color; });
 
 .s('markup.bold' {
   font-weight: bold;
@@ -243,20 +268,20 @@ atom-text-editor {
   background-color: fade(@green, 15%);
 });
 
-.s('markup.list', {
-  color: @red;
-});
+// .s('markup.list', {
+//   color: @red;
+// });
 
-.s('markup.quote', {
-  color: @orange;
-});
+// .s('markup.quote', {
+//   color: @orange;
+// });
 
-.s('markup.raw.inline', {
-  color: @green;
-});
+// .s('markup.raw.inline', {
+//   color: @green;
+// });
 
-.s('meta.embedded, variable.interpolation', {
-  .mixin-embedded();
+.s('meta.embedded.line, variable.interpolation', {
+  .mixin-embedded-line();
 });
 
 // GFM OVERRIDES
@@ -273,9 +298,12 @@ atom-text-editor {
 
 @import 'languages/ruby';
 @import 'languages/html';
+@import 'languages/gfm';
 @import 'languages/css.less';
 @import 'languages/babel';
 @import 'languages/javascript';
 @import 'languages/php';
 @import 'languages/python';
 @import 'languages/cpp';
+
+@import (optional) 'user-settings';

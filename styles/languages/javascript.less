@@ -4,12 +4,16 @@
 // JAVASCRIPT (TREE-SITTER) OVERRIDES
 .s('source.js', {
 
+  .s('punctuation.definition.template-expression', {
+    color: @red;
+  });
+
   .s('punctuation.section.embedded', {
     color: @red;
   });
 
   .s('entity.quasi.element', {
-    .mixin-embedded();
+    .mixin-embedded-line();
 
     .s('punctuation.quasi.element', {
       color: @red;

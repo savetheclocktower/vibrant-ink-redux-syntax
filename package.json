@@ -2,6 +2,7 @@
   "name": "vibrant-ink-redux-syntax",
   "theme": "syntax",
   "version": "0.3.14",
+  "main": "lib/main",
   "description": "An Atom theme based on Justin Palmer's original",
   "keywords": [
     "syntax",
@@ -11,5 +12,31 @@
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
+  },
+  "configSchema": {
+    "manageEditorScrollbars": {
+      "order": 1,
+      "title": "Manage Editor Scrollbars",
+      "description": "Whether this theme should apply its preferred UI styles to editor scrollbars. Typically all scrollbars are handled by the UI theme, but you may want to use these styles for your editors instead if you've got a light UI theme.",
+      "default": false,
+      "type": "boolean"
+    },
+    "useBracketMatcherStyles": {
+      "order": 2,
+      "title": "Use Bracket Matcher Styles",
+      "description": "Whether this theme should apply its preferred styles for the `bracket-matcher` package. If enabled, will mark matching bracket pairs with an outline and a subtle background color change instead of a green dotted underline.",
+      "default": false,
+      "type": "boolean"
+    },
+    "useLinterStyles": {
+      "order": 3,
+      "title": "Use Linter Styles",
+      "description": "Whether this theme should apply its preferred styles for linter annotations. If enabled, will replace the default wavy-underline text annotations with solid underlines in theme-harmonious colors. Does not affect styles applied by `linter-ui-default` in non-editor contexts (like the tree view).",
+      "default": false,
+      "type": "boolean"
+    }
+  },
+  "dependencies": {
+    "dedent": "^0.7.0"
   }
 }

@@ -7,12 +7,17 @@
     color: @syntax-text-color;
   });
 
+
   .s('storage.type.variable', {
     color: @red;
   });
 
+  .s('function.method.builtin', {
+    color: @yellow;
+  });
+
   .s('embedded.source', {
-    .mixin-embedded();
+    .mixin-embedded-line();
 
     .s('punctuation.section.embedded', {
       // color: @syntax-text-color;
