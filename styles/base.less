@@ -3,7 +3,7 @@
 
 // Make bookmarks stand out more.
 atom-text-editor .gutter .line-number.bookmarked .icon-right:before {
-  color: @very-light-gray;
+  color: lighten(@syntax-text-color, 30%);
 }
 
 // Mini editor
@@ -182,20 +182,15 @@ atom-text-editor {
 
 .sx('support.function', {
   text-decoration: underline;
-  text-decoration-color: fade(@orange, 35%);
+  text-decoration-color: fade(@orange, 30%);
 });
 
 .sx('support.other.function', {
-  // color: @orange;
-  // color: lighten(fade(@orange, 95%), 35%);
-  // text-decoration: underline;
-  // text-decoration-color: fade(@orange, 35%);
-  // text-decoration-thickness: 2px;
+  text-decoration: underline;
+  text-decoration-color: fade(@orange, 30%);
 });
 
 .s('support.type.property-name', { color: @brown; });
-.s('support.class, support.type.class', { color: @bluish-white; });
-
 
 .s('entity', { color: @orange; });
 .s('entity.name.type.class', {
@@ -223,10 +218,6 @@ atom-text-editor {
 .s('meta.object-literal.key', { color: @orange; });
 
 .s('entity.other.attribute-name', { color: @orange; });
-
-// .syntax--meta.syntax--class:not(.syntax--body) {
-//   color: @bluish-white;
-// }
 
 .s('meta.link', { color: @orange; });
 .s('meta.require', { color: @blue; });
@@ -261,11 +252,16 @@ atom-text-editor {
 });
 
 .s('markup.heading', {
+  color: @orange;
   .s('punctuation.definition.heading', { color: @orange; });
 });
 
 .s('markup.inserted', {
   background-color: fade(@green, 15%);
+});
+
+.s('markup.strike', {
+  color: fade(@syntax-text-color, 60%);
 });
 
 // .s('markup.list', {
@@ -284,15 +280,6 @@ atom-text-editor {
   .mixin-embedded-line();
 });
 
-// GFM OVERRIDES
-.s('source.gfm', {
-  .s('markup', {
-    -webkit-font-smoothing: auto;
-  });
-  .s('markup.heading', {
-    color: @orange;
-  });
-});
 
 @import 'github';
 
