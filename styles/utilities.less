@@ -1,19 +1,48 @@
 
-// Make targeting scopes less tedious.
+// Make targeting scopes less tedious. Allows you to write
+//
+//    .s('entity.name.function', { color: @red; });
+//
+// instead of
+//
+//    .syntax--entity.syntax--name.syntax--function { color: red };
+//
+// As with what's typically seen in Atom/Pulsar syntax themes, these scope
+// segments will match in any order. In this example, something scoped
+// `entity.function.name` would also be targeted, whether this was intended or
+// not.
+//
 .s(@scope, @ruleset) {
-  @selector: ~`@{scope}.split(/,\s*/).map(  (s) => s.split(/\./).map((p) => ".syntax--" + p).join('')  ).join(', ').slice(1)`;
+  @plugin "util.js";
+  @selector: makeScopeSelector(@scope);
 
-  .@{selector} {
+  @{selector} {
     @ruleset();
   }
 }
 
-// Match the given scope and anchor to the beginning of the scope name. Does
-// not accept commas or descendant combinators.
-.sx(@scope, @ruleset) {
-  @value: ~`@{scope}.split(/\./).map(p => 'syntax--' + p).join(' ')`;
 
-  *[class^='@{value} '], *[class='@{value}'] {
+// Allows you to write
+//
+//    .sx('entity.name.function', { color: @red; });
+//
+// instead of
+//
+//    *[class^='syntax--entity syntax--name syntax--function '],
+//    *[class='syntax--entity syntax--name syntax--function'] {
+//      color: red
+//    };
+//
+// Unlike the above, scope matching is _exact_. Our example will match anything
+// scoped `entity.name.function`, including anything that has additional scope
+// segments after those three. Will not match `entity.function`, `entity.name`,
+// or `entity.function.name`.
+// 
+.sx(@scope, @ruleset) {
+  @plugin "util.js";
+  @selector: makeExactScopeSelector(@scope, @ruleset);
+
+  @{selector} {
     @ruleset();
   }
 }

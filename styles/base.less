@@ -1,5 +1,5 @@
-@import 'syntax-variables';
-@import 'utilities';
+@import 'syntax-variables.less';
+@import 'utilities.less';
 
 // Make bookmarks stand out more.
 atom-text-editor .gutter .line-number.bookmarked .icon-right:before {
@@ -16,6 +16,10 @@ atom-text-editor {
   // -webkit-font-smoothing: antialiased;
   background-color: @syntax-background-color;
   color: @syntax-text-color;
+
+  .cursor-line {
+    background-color: lighten(@syntax-background-color, 5%);
+  }
 
   .wrap-guide {
     background-color: @syntax-wrap-guide-color;
@@ -158,7 +162,7 @@ atom-text-editor {
   color: @blue;
 });
 
-.s('punctuation.defintion.bold', {
+.s('punctuation.definition.bold', {
   color: @syntax-text-color;
   font-weight: bold;
 });
@@ -172,7 +176,7 @@ atom-text-editor {
   color: @red;
 });
 
-.s('support', {
+.sx('support', {
   color: @bluish-white;
 });
 
@@ -180,19 +184,14 @@ atom-text-editor {
   color: @syntax-text-color;
 });
 
-.sx('support.function', {
-  text-decoration: underline;
-  text-decoration-color: fade(@orange, 30%);
-});
-
-.sx('support.other.function', {
+.sx('support.function, support.other.function', {
   text-decoration: underline;
   text-decoration-color: fade(@orange, 30%);
 });
 
 .s('support.type.property-name', { color: @brown; });
 
-.s('entity', { color: @orange; });
+.sx('entity', { color: @orange; });
 .s('entity.name.type.class', {
   color: @orange;
   text-decoration: underline;
@@ -229,7 +228,7 @@ atom-text-editor {
 
 // .s('none', { color: @syntax-text-color; });
 
-.s('markup.bold' {
+.s('markup.bold', {
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.1);
 });
@@ -292,5 +291,6 @@ atom-text-editor {
 @import 'languages/php';
 @import 'languages/python';
 @import 'languages/cpp';
+@import 'languages/json';
 
 @import (optional) 'user-settings';
