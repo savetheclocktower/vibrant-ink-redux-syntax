@@ -1,8 +1,12 @@
 # Vibrant Ink Redux
 
-A [Pulsar][pulsar] theme (should also work in [Atom][atom]). Ported from the original for [TextMate 2][textmate].
+A [Pulsar][pulsar] theme. Ported from the original for [TextMate 2][textmate].
 
 <img width="530" alt="Screenshot 2023-05-11 at 3 47 04 PM" src="https://user-images.githubusercontent.com/3450/237828531-4ad62496-7df9-40f8-9040-82a30b8d5b74.png">
+
+---
+
+**NOTE:** Since version 0.4.3, `vibrant-ink-redux-syntax` requires Pulsar version **1.107.1** or greater. If you’re still using Atom, you should stay on 0.4.2.
 
 ---
 

@@ -37,6 +37,7 @@
     }
   },
   "dependencies": {
-    "dedent": "^0.7.0"
+    "dedent": "^0.7.0",
+    "proper-lockfile": "^4.1.2"
   }
 }
