@@ -1,7 +1,7 @@
 {
   "name": "vibrant-ink-redux-syntax",
   "theme": "syntax",
-  "version": "0.4.16",
+  "version": "0.4.17",
   "main": "lib/main",
   "description": "An Atom theme based on Justin Palmer's original",
   "keywords": [
